@@ -1,4 +1,5 @@
-﻿using TheMessage.Business.Interfaces.Entities;
+﻿using System.Collections.Generic;
+using TheMessage.Business.Interfaces.Entities;
 
 namespace TheMessage.Business.Interfaces.Services
 {
@@ -6,6 +7,6 @@ namespace TheMessage.Business.Interfaces.Services
     {
         void SaveMessage(IMessage message);
         IMessage GetMessageById(int id);
-        IMessage GetMessageByUserId(int id);
+        IEnumerable<IMessage> GetMessagesByUserId(int id);
     }
 }

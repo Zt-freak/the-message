@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheMessage.Business.Context;
 
 namespace TheMessage.API.Migrations
 {
     [DbContext(typeof(MessageDataContext))]
-    partial class MessageDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210826135446_addedSeedData")]
+    partial class addedSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,6 @@ namespace TheMessage.API.Migrations
                         {
                             Id = 1,
                             Content = "this is a test",
-                            DataTimeSent = new DateTime(2021, 8, 26, 15, 59, 16, 85, DateTimeKind.Local).AddTicks(3826),
                             SenderId = 1,
                             Title = "Test"
                         });

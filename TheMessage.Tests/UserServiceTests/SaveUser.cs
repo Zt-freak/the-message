@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Moq;
+﻿using Moq;
 using System;
-using System.Linq;
-using TheMessage.Business.Context;
 using TheMessage.Business.Entities;
 using TheMessage.Business.Interfaces.Repositories;
 using TheMessage.Business.Services;
