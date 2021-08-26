@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheMessage.Business.Context;
 
 namespace TheMessage.API.Migrations
 {
     [DbContext(typeof(MessageDataContext))]
-    partial class MessageDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210826135916_updateMessageSeedData")]
+    partial class updateMessageSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
