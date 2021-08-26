@@ -3,7 +3,7 @@ using TheMessage.Business.Entities;
 
 namespace TheMessage.Business.Context
 {
-    class MessageDataContext : DbContext
+    public class MessageDataContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
