@@ -3,7 +3,7 @@ using TheMessage.Business.Interfaces.Entities;
 
 namespace TheMessage.Business.Entities
 {
-    class User : IUser
+    public class User : IUser
     {
         [Key]
         public int Id { get; set; }

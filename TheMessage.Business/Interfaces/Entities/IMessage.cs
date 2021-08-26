@@ -1,4 +1,5 @@
 ﻿using System;
+using TheMessage.Business.Entities;
 
 namespace TheMessage.Business.Interfaces.Entities
 {
@@ -8,7 +9,7 @@ namespace TheMessage.Business.Interfaces.Entities
         string Title { get; set; }
         string Content { get; set; }
         int SenderId { get; set; }
-        IUser Sender { get; set; }
+        User Sender { get; set; }
         DateTime DataTimeSent { get; set; }
     }
 }
