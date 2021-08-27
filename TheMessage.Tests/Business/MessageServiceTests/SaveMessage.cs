@@ -9,15 +9,15 @@ namespace TheMessage.Tests.Business.UserServiceTests
 {
     public class SaveMessage
     {
-        private readonly MessageService _service;
+        private readonly MessageRepository _service;
         private readonly Mock<IMessageRepository> _mockMessageRepository;
 
         public SaveMessage()
         {
             _mockMessageRepository = new Mock<IMessageRepository>();
 
-            _service = new MessageService(_mockMessageRepository.Object);
-            _service = new MessageService(_mockMessageRepository.Object);
+            _service = new MessageRepository(_mockMessageRepository.Object);
+            _service = new MessageRepository(_mockMessageRepository.Object);
         }
 
         [Fact]

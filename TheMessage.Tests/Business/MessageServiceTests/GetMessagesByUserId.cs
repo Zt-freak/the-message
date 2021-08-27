@@ -11,14 +11,14 @@ namespace TheMessage.Tests.Business.MessageServiceTests
 {
     public class GetMessageByUserId
     {
-        private readonly MessageService _service;
+        private readonly MessageRepository _service;
         private readonly Mock<IMessageRepository> _mockMessageRepository;
 
         public GetMessageByUserId()
         {
             _mockMessageRepository = new Mock<IMessageRepository>();
 
-            _service = new MessageService(_mockMessageRepository.Object);
+            _service = new MessageRepository(_mockMessageRepository.Object);
         }
 
         [Fact]

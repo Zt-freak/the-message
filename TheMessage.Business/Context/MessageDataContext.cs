@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using TheMessage.Business.Entities;
+using TheMessage.Business.Interfaces.Context;
 
 namespace TheMessage.Business.Context
 {
-    public class MessageDataContext : DbContext
+    public class MessageDataContext : DbContext, IMessageDataContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
