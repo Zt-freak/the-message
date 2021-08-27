@@ -5,7 +5,7 @@ using TheMessage.Business.Interfaces.Repositories;
 using TheMessage.Business.Services;
 using Xunit;
 
-namespace TheMessage.Tests.UserServiceTests
+namespace TheMessage.Tests.Business.UserServiceTests
 {
     public class SaveUser
     {

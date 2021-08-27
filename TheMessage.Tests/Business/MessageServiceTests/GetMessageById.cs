@@ -6,18 +6,18 @@ using TheMessage.Business.Interfaces.Repositories;
 using TheMessage.Business.Services;
 using Xunit;
 
-namespace TheMessage.Tests.MessageServiceTests
+namespace TheMessage.Tests.Business.MessageServiceTests
 {
     public class GetMessageById
     {
-        private readonly MessageService _service;
+        private readonly MessageRepository _service;
         private readonly Mock<IMessageRepository> _mockMessageRepository;
 
         public GetMessageById()
         {
             _mockMessageRepository = new Mock<IMessageRepository>();
 
-            _service = new MessageService(_mockMessageRepository.Object);
+            _service = new MessageRepository(_mockMessageRepository.Object);
         }
 
         [Fact]

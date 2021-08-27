@@ -6,6 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TheMessage.Business.Context;
+using TheMessage.Business.Entities;
+using TheMessage.Business.Interfaces.Entities;
+using TheMessage.Business.Interfaces.Repositories;
+using TheMessage.Business.Interfaces.Services;
+using TheMessage.Business.Repositories;
+using TheMessage.Business.Services;
 
 namespace TheMessage.API
 {
@@ -27,6 +33,13 @@ namespace TheMessage.API
                     b => b.MigrationsAssembly(this.GetType().Namespace)
                 )
             );
+
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMessage, Message>();
+            services.AddScoped<IUser, User>();
 
             services.AddControllers();
 
