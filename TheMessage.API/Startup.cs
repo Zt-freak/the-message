@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TheMessage.Business.Context;
+using TheMessage.Business.Entities;
+using TheMessage.Business.Interfaces.Entities;
+using TheMessage.Business.Interfaces.Repositories;
+using TheMessage.Business.Interfaces.Services;
+using TheMessage.Business.Repositories;
+using TheMessage.Business.Services;
 
 namespace TheMessage.API
 {
@@ -26,8 +27,22 @@ namespace TheMessage.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MessageDataContext>(
+                options => options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly(this.GetType().Namespace)
+                )
+            );
+
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMessage, Message>();
+            services.AddScoped<IUser, User>();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TheMessage.API", Version = "v1" });
