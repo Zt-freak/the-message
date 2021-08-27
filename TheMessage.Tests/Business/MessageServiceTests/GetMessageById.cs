@@ -6,7 +6,7 @@ using TheMessage.Business.Interfaces.Repositories;
 using TheMessage.Business.Services;
 using Xunit;
 
-namespace TheMessage.Tests.MessageServiceTests
+namespace TheMessage.Tests.Business.MessageServiceTests
 {
     public class GetMessageById
     {
